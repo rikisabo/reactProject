@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { withNamespaces } from "react-i18next";
 
 
-export default function LoginForm() {
+
+    
+ function LoginForm({t}) {
+    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
@@ -26,7 +30,7 @@ export default function LoginForm() {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">{t("username")}:</label>
                 <input
                     type="text"
                     id="username"
@@ -36,7 +40,7 @@ export default function LoginForm() {
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">{t("password")}:</label>
                 <input
                     type="password"
                     id="password"
@@ -45,7 +49,9 @@ export default function LoginForm() {
                     required
                 />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">{t("login")}</button>
         </form>
     );
 }
+
+export default withNamespaces()(LoginForm); 

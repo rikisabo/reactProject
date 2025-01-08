@@ -8,14 +8,10 @@ import Card from './lesson_4/components/homePageComponents/Card';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from './lesson_4/components/conect/Login';
 import ThankYou from './lesson_4/components/ThankYou/ThankYou'
+import  { withNamespaces } from 'react-i18next';
 function App() {
   return (
     <>
-      {/* // <DisplayPic></DisplayPic>
-    //<GetResponse></GetResponse> */}
-      {/* <Nav></Nav> */}
-      {/* //<HomePageScreen></HomePageScreen> */}
-      {/* <HomePageScreen></HomePageScreen> */}
       <BrowserRouter>
         <Nav></Nav>
         <Routes>
@@ -26,7 +22,6 @@ function App() {
 
       </BrowserRouter>
     </>
-
   );
 
 }

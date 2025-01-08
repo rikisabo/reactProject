@@ -2,12 +2,12 @@
 import React from 'react';
 import img1 from './picuters/1.png'
 import './Card.css'; // Assuming you create a separate CSS file for styling
-
-const Card = ({ image, description }) => {
+import { withNamespaces } from 'react-i18next';
+const Card = ({t}) => {
     return (
         <div className="card">
-            <p className="card-description">{description}</p>
-            <button className="card-button">Click Me</button>
+            <p className="card-description">{"description"}</p>
+            <button className="card-button">{"Click Me"}</button>
         </div>
     );
 };
