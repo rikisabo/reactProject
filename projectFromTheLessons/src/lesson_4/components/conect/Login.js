@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { withNamespaces } from "react-i18next";
-
+import i18n from 'i18next';
+import { t } from 'i18next';
 
 
     
- function LoginForm({t}) {
+ function LoginForm() {
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -54,4 +55,4 @@ import { withNamespaces } from "react-i18next";
     );
 }
 
-export default withNamespaces()(LoginForm); 
+export default LoginForm; 
