@@ -1,4 +1,4 @@
-import { ADD_TASK, DELETE_FROM_RECYCLE_BIN, DELETE_FROM_THE_TASKS, RECONSTRUCTION_TASK } from "../ActionsTypes";
+import { ADD_TASK, DELETE_FROM_RECYCLE_BIN, DELETE_FROM_THE_TASKS, RECONSTRUCTION_TASK,ADD_TASK_TO_THE_RECYCLE_BIN } from "../ActionsTypes";
 
 export const initialState = {
     theTasks: [],
@@ -13,10 +13,17 @@ export const TasksReducer = (state = initialState, action) => {
                 ...state, 
                 theTasks: state.theTasks.filter(task => task.Name !== action.payload.Name)
             };
-        case DELETE_FROM_THE_TASKS:
-            return { theTasks: [] }; // Modify as per your requirement
+        case ADD_TASK_TO_THE_RECYCLE_BIN:
+            return { 
+                ...state, 
+                theTasks: state.theTasks.filter(task => task.Name !== action.payload.Name) ,
+                //add to the recycle bin!!
+
+             }; // Modify as per your requirement
         case RECONSTRUCTION_TASK:
-            return { ...state }; // Modify as per your requirements
+            return { ...state, 
+                theTasks: state.theTasks.concat(action.payload) // Add the task back to tasks 
+            }; // Modify as per your requirements
         default:
             return state;
     }

@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addTask, deleteFromRecycleBin, deleteFromTheTasks, reconstructionTask } from '../redux/Actions';
+import { addTask, addTaskToTheRecycleBin, deleteFromRecycleBin, deleteFromTheTasks, reconstructionTask } from '../redux/Actions';
+// import rootReducer from '../redux/Store';
 const DisplayTask = () => {
     const dispatch = useDispatch();
-    const theTasks = useSelector((state) => state.theTasks);
+    const theTasks = useSelector((state) => state.tasks.theTasks);
+    console.log(theTasks);
     const [Name, setName] = useState('');
     return (
         <>
-            {theTasks.map(i => (<div><p>{i.Name}</p>,
+        <h1>my tasks!!!:</h1>
+            {theTasks.map(i => (<div><p>{i.Name}</p>
                 <button onClick={() => {
-                    dispatch(deleteFromTheTasks({ Name:i.Name }))
+                    dispatch(addTaskToTheRecycleBin({ Name:i.Name }))
                 }}>remove the task</button></div>))}
             <input onBlur={(e) => setName(e.target.value)} placeholder='Name of your task' />
 
